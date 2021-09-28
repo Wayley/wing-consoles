@@ -1,13 +1,4 @@
-// module.exports = function (app) {
-//   app.use(
-//     '/admindevice',
-//     createProxyMiddleware({
-//       target: 'http://121.41.109.132',
-//       changeOrigin: true,
-//       pathRewrite: { '^/admindevice': '/admindevice' },
-//     })
-//   );
-// };
+/************************************ 开发环境下的代理配置 ************************************/
 
 module.exports = {
   /* *********************** DEVICE SERVICE *********************** */
