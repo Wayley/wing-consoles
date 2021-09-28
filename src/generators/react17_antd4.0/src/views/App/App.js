@@ -1,5 +1,5 @@
 function App() {
-  return <div>Wing Console</div>;
+  return <div className="app">Wing Console</div>;
 }
 
 export default App;
