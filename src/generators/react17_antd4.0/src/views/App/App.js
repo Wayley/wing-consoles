@@ -1,5 +1,7 @@
+import AuthenticRouter from '../../components/AuthenticRouter';
+
 function App() {
-  return <div className="app">Wing Console</div>;
+  return <AuthenticRouter />;
 }
 
 export default App;
