@@ -77,16 +77,16 @@ export default function AuthenticRouter() {
             <Switch>
               <Route path="/system">
                 <Switch>
-                  <Route exact path="/system/account">
+                  <Route path="/system/account">
                     <Switch>
-                      <Route exact path="/system/account/list">
+                      <Route path="/system/account/list">
                         <AcountList />
                       </Route>
                     </Switch>
                   </Route>
-                  <Route exact path="/system/role">
+                  <Route path="/system/role">
                     <Switch>
-                      <Route exact path="/system/role/list">
+                      <Route path="/system/role/list">
                         <RoleList />
                       </Route>
                     </Switch>
@@ -95,7 +95,7 @@ export default function AuthenticRouter() {
               </Route>
               <Route path="/xxx">
                 <Switch>
-                  <Route exact path="/xxx/proxy">
+                  <Route path="/xxx/proxy">
                     <Proxy />
                   </Route>
                 </Switch>
