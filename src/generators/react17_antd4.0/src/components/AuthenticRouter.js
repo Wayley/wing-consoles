@@ -14,6 +14,7 @@ import MainLayout from '../layouts/MainLayout';
 import EmptyLayout from '../layouts/EmptyLayout';
 
 import Welcome from '../views/Welcome/Welcome';
+import NoMatched, { NotFound } from '../views/NoMatched/NoMatched';
 
 import AcountList from '../views/System/Acount/AcountList';
 import RoleList from '../views/System/Role/RoleList';
@@ -72,6 +73,9 @@ export default function AuthenticRouter() {
         <Route exact path="/forget">
           <ForgetPassword />
         </Route>
+        <Route path="/404">
+          <NoMatched />
+        </Route>
         <PrivateRoute path="/">
           <MainLayout>
             <Switch>
@@ -102,6 +106,9 @@ export default function AuthenticRouter() {
               </Route>
               <Route exact path="/">
                 <Welcome />
+              </Route>
+              <Route path="/*">
+                <NotFound />
               </Route>
             </Switch>
           </MainLayout>
