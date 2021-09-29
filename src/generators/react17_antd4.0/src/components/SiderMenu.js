@@ -6,7 +6,7 @@ export default function SiderMenu({ list }) {
       {list.map((menu) => {
         const { path, title } = menu;
         return (
-          <li>
+          <li key={path}>
             <Link to={path}>{title}</Link>
           </li>
         );
