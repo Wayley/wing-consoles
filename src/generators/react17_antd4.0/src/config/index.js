@@ -10,5 +10,10 @@ export const cookieConfig = {
   localeKeyName: `${appName}-locale`,
 };
 
+/* ***************************************** Layout CONFIG ***************************************** */
+export const layoutConfig = {
+  withHeaderMenu: true,
+};
+
 export const configs = { cookieConfig };
 export default configs;
