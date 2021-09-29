@@ -7,12 +7,24 @@ const menus = {
   ],
   '/system': [
     {
-      path: '/system/account/list',
+      path: '/system/account',
       title: 'Account',
+      children: [
+        {
+          path: '/system/account/list',
+          title: ' Account List',
+        },
+      ],
     },
     {
-      path: '/system/role/list',
+      path: '/system/role',
       title: 'Role',
+      children: [
+        {
+          path: '/system/role/list',
+          title: ' Role List',
+        },
+      ],
     },
   ],
 };
