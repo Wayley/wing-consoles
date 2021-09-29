@@ -17,6 +17,10 @@ import Welcome from '../views/Welcome/Welcome';
 import NoMatched, { NotFound } from '../views/NoMatched/NoMatched';
 
 import AcountList from '../views/System/Acount/AcountList';
+import AccountAdd from '../views/System/Acount/AccountAdd';
+import AccountEdit from '../views/System/Acount/AccountEdit';
+import AccountDetail from '../views/System/Acount/AccountDetail';
+
 import RoleList from '../views/System/Role/RoleList';
 
 import Proxy from '../views/Xxx/Proxy';
@@ -88,6 +92,15 @@ export default function AuthenticRouter() {
                     <Switch>
                       <Route path="/system/account/list">
                         <AcountList />
+                      </Route>
+                      <Route exact path="/system/account/add">
+                        <AccountAdd />
+                      </Route>
+                      <Route exact path="/system/account/:id">
+                        <AccountEdit />
+                      </Route>
+                      <Route exact path="/system/account/detail/:id">
+                        <AccountDetail />
                       </Route>
                     </Switch>
                   </Route>
