@@ -45,19 +45,22 @@ function PrivateRoute({ children, ...rest }) {
 // const routes = [
 //   {
 //     path: '/login',
-//     component: Login,
+//     page: Login,
 //   },
 //   {
 //     path: '/forget',
-//     component: ForgetPassword,
+//     page: ForgetPassword,
+//   },
+//   {
+//     path: '/forget',
+//     page: ForgetPassword, // page
 //   },
 //   {
 //     path: '/',
-//     component: MainLayout,
+//     layout: MainLayout, // layout
 //     children: [
 //       {
 //         path: '/system',
-//         component: EmptyLayout,
 //       },
 //     ],
 //   },
