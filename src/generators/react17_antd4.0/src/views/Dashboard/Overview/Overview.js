@@ -25,7 +25,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <div className="page-title">Dashboard</div>
+      <div className="page-title">Dashboard Overview</div>
       <div className="page-query">
         <Form
           layout="inline"
