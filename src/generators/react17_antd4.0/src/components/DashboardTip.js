@@ -19,7 +19,5 @@ export default function DashboardTip({ children }) {
       },
     });
   }, []);
-  return (
-    <div className="dashboard-tip">{noticed && <div>{children}</div>}</div>
-  );
+  return noticed && children;
 }

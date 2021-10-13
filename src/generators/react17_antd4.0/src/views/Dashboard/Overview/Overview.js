@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect } from 'react';
+
 import { Form, Button, DatePicker, Select } from 'antd';
 import { SUPPORTED_DASHBOARD_CARS } from '../../../config';
 import { useLocale } from '../../../hooks/useLocale';
@@ -9,24 +9,7 @@ import moment from 'moment';
 const { Option } = Select;
 const queryItemWidth = 200;
 export default function Dashboard() {
-  const history = useHistory();
   const { lang } = useLocale();
-  const containers = [
-    {
-      key: 'view-total',
-      content: 'Dashboard-Total Data',
-    },
-    {
-      key: 'view-user-daily-increase-data',
-      content: 'Dashboard-User Daily Increase Data',
-      path: '/dashboard/user-daily-increase-data',
-    },
-    {
-      key: 'view-active-user-data',
-      content: 'Dashboard-Active User Data',
-      path: '/dashboard/active-user-data',
-    },
-  ];
 
   useEffect(() => {
     // do any thing when lang changed
@@ -41,9 +24,9 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="dashboard-overview">
-      <div className="dashboard-title">Dashboard</div>
-      <div className="dashboard-query">
+    <div>
+      <div className="page-title">Dashboard</div>
+      <div className="page-query">
         <Form
           layout="inline"
           colon={false}
@@ -75,19 +58,7 @@ export default function Dashboard() {
           </Form.Item>
         </Form>
       </div>
-      <div className="dashboard-main">
-        {containers.map((item) => (
-          <div className="dashboard-item dashboard-item-flex" key={item.key}>
-            <div className="viz-operations">
-              {item.path && (
-                <Button onClick={() => history.push(item.path)}>More...</Button>
-              )}
-            </div>
-
-            <div className="viz-container">{item.content}</div>
-          </div>
-        ))}
-      </div>
+      <div>Dashboard Overview Page</div>
     </div>
   );
 }
