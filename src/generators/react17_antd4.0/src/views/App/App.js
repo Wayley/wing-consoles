@@ -1,7 +1,5 @@
 import AuthenticRouter from '../../components/AuthenticRouter';
 
-function App() {
+export default function App() {
   return <AuthenticRouter />;
 }
-
-export default App;

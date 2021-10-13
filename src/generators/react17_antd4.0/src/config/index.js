@@ -1,19 +1,53 @@
 import { name } from '../../package.json';
 
-/* ***************************************** APP DEFAULT CONFIG ***************************************** */
 export const appName = name;
 
-/* ***************************************** COOKIE CONFIG ***************************************** */
 export const cookieConfig = {
   tokenKeyName: `${appName}-token`,
   accountKeyName: `${appName}-account`,
+  accountIdKeyName: `${appName}-account-id`,
   localeKeyName: `${appName}-locale`,
 };
+export const defaultLocale = 'en_US'; // or navigator.language
 
-/* ***************************************** Layout CONFIG ***************************************** */
-export const layoutConfig = {
-  withHeaderMenu: true,
+export const APP_ICS_CONFIG = {
+  client_secret: 'Fih793987',
+  client_id: 'console_911427',
+  grant_type: 'password',
+  userType: '8540868',
 };
-
+/* *************************** CODETYPE CONFIG *************************** */
+export const CodeType = {
+  SUCCESS: 200,
+  isSuccess: (code) => code === CodeType.SUCCESS,
+  UNAUTHENTICATED: 401,
+  isUnAuthenticated: (code) => code === CodeType.UNAUTHENTICATED,
+  TIMEOUT: 408,
+  isTimeout: (code) => code === CodeType.TIMEOUT,
+};
+/* *************************** DASHBOARD CONFIG *************************** */
+export const SUPPORTED_DASHBOARD_CARS = [
+  {
+    label: 'All',
+    value: '',
+  },
+  {
+    label: 'Car 1',
+    value: 'car1',
+  },
+  {
+    label: 'Car 2',
+    value: 'car2',
+  },
+  {
+    label: 'Car 3',
+    value: 'car3',
+  },
+];
+export const DASHBOARD_VIEW_COMMON_PARAMS = {
+  host_url: 'http://121.40.193.18/',
+  hideTabs: true,
+};
 export const configs = { cookieConfig };
+
 export default configs;

@@ -2,9 +2,9 @@ import { get, set, remove } from 'js-cookie';
 
 /* ****************** Cookie Attribute ****************** */
 const expires = 0.5; // as day
-const path = '';
+const path = '/';
 
-const cookie = {
+export const cookie = {
   set: (key, value) => {
     return set(key, value, { expires, path });
   },

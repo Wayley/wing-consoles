@@ -1,3 +1,4 @@
+import { displayName } from '../../../package.json';
 export default function Welcome() {
-  return <div>Welcome</div>;
+  return <div className="welcome-page">Welcome to {displayName}</div>;
 }

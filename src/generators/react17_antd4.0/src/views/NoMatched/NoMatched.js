@@ -12,5 +12,5 @@ export function NotFound() {
 }
 
 export default function NoMatched() {
-  return <div>404</div>;
+  return <div className="no-matched">404</div>;
 }
