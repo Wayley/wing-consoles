@@ -44,10 +44,7 @@ export const SUPPORTED_DASHBOARD_CARS = [
     value: 'car3',
   },
 ];
-export const DASHBOARD_VIEW_COMMON_PARAMS = {
-  host_url: 'http://121.40.193.18/',
-  hideTabs: true,
-};
+
 export const configs = { cookieConfig };
 
 export default configs;
