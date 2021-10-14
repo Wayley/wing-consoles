@@ -1,4 +1,6 @@
 import { Select } from 'antd';
+import intl from 'react-intl-universal';
+
 const { Option } = Select;
 
 export default function LocaleSelector({ locales, locale, onChange, ...rest }) {
@@ -11,9 +13,9 @@ export default function LocaleSelector({ locales, locale, onChange, ...rest }) {
       {...rest}
     >
       {locales &&
-        locales.map(({ value, title }) => (
+        locales.map(({ value, localeKey }) => (
           <Option value={value} key={value}>
-            {title}
+            {intl.get(localeKey)}
           </Option>
         ))}
     </Select>

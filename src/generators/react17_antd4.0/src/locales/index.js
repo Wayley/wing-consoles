@@ -1,17 +1,17 @@
 export const localeConfig = {
   SUPPORTED_LOCALES: [
     {
-      title: 'English',
+      localeKey: 'en_us',
       value: 'en_US',
       universalValue: 'en-US',
     },
     {
-      title: '简体中文',
+      localeKey: 'zh_cn',
       value: 'zh_CN',
       universalValue: 'zh-CN',
     },
     {
-      title: '繁體中文',
+      localeKey: 'zh_tw',
       value: 'zh_TW',
       universalValue: 'zh-TW',
     },
