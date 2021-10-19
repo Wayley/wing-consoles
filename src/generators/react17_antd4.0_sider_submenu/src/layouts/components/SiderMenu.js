@@ -11,7 +11,8 @@ const { SubMenu } = Menu;
 // submenu keys of first level
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
 
-export default function HeaderMenu() {
+export default function HeaderMenu({ list }) {
+  console.log(list, 'SIderMenus');
   const [openKeys, setOpenKeys] = useState(['sub1']);
 
   const onOpenChange = (keys) => {

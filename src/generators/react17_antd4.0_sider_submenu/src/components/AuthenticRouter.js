@@ -35,8 +35,6 @@ import Dashboard from '../views/Dashboard/Overview/Overview';
 import ActiveUserData from '../views/Dashboard/ActiveUserData/ActiveUserData';
 import UserDailyIncreaseData from '../views/Dashboard/UserDailyIncreaseData/UserDailyIncreaseData';
 
-import DashboardTip from '../components/DashboardTip';
-
 function PrivateRoute({ children, ...rest }) {
   let auth = useAuth();
   return (
@@ -75,19 +73,17 @@ export default function AuthenticRouter() {
           <MainLayout>
             <Switch>
               <Route path="/dashboard">
-                <DashboardTip>
-                  <Switch>
-                    <Route path="/dashboard/overview">
-                      <Dashboard />
-                    </Route>
-                    <Route path="/dashboard/user-daily-increase-data">
-                      <UserDailyIncreaseData />
-                    </Route>
-                    <Route path="/dashboard/active-user-data">
-                      <ActiveUserData />
-                    </Route>
-                  </Switch>
-                </DashboardTip>
+                <Switch>
+                  <Route path="/dashboard/overview">
+                    <Dashboard />
+                  </Route>
+                  <Route path="/dashboard/user-daily-increase-data">
+                    <UserDailyIncreaseData />
+                  </Route>
+                  <Route path="/dashboard/active-user-data">
+                    <ActiveUserData />
+                  </Route>
+                </Switch>
               </Route>
               <Route path="/system">
                 <Switch>

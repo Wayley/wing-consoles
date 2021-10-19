@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { Button } from 'antd';
@@ -15,14 +15,27 @@ import { cookie } from '../utils/cookie';
 import { $Message } from '../utils/method';
 
 import { cookieConfig, CodeType } from '../config';
-import { logout } from '../service';
+import { logout, getUserMenus } from '../service';
 const { accountKeyName } = cookieConfig;
 const { SUPPORTED_LOCALES } = localeConfig;
+
+function findChildren(list, activeKey) {
+  let active = list.find((o) => o.path === activeKey);
+
+  return active && active.children ? active.children : [];
+}
 
 export default function MainLayout({ children }) {
   const history = useHistory();
   const { lang, updateLang } = useLocale();
   const auth = useAuth();
+  const [menus, setMenus] = useState([]);
+  const [key, setKey] = useState(''); // Header Menu Selected Key
+  const headerMenuClick = (key) => {
+    history.push(key);
+    setKey(key);
+  };
+
   // LOG OUT
   async function fetchLogout() {
     try {
@@ -39,8 +52,8 @@ export default function MainLayout({ children }) {
     } catch (error) {}
   }
   async function getMenus() {
-    // const menus = await getUserMenus();
-    // console.log(menus);
+    const menus = await getUserMenus();
+    setMenus(menus || []);
   }
   useEffect(() => {
     getMenus();
@@ -56,12 +69,14 @@ export default function MainLayout({ children }) {
           </div>
           {/* <img src='' alt="logo" /> */}
         </div>
-        <SiderMenu />
+        {key && menus && menus.length > 0 && (
+          <SiderMenu list={findChildren(menus, key)} />
+        )}
       </div>
       <div className="main-layout-main">
         <div className="main-layout-header">
           <div style={{ flex: 1, marginLeft: 40 }}>
-            <HeaderMenu />
+            <HeaderMenu list={menus} onClick={headerMenuClick} selectedKey="" />
           </div>
           <div className="main-layout-operation">
             <LocaleSelector
