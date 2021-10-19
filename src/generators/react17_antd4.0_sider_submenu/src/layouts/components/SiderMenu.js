@@ -11,9 +11,9 @@ const { SubMenu } = Menu;
 // submenu keys of first level
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
 
-export default function HeaderMenu({ list }) {
+export default function HeaderMenu({ list, selectedKey }) {
   console.log(list, 'SIderMenus');
-  const [openKeys, setOpenKeys] = useState(['sub1']);
+  const [openKeys, setOpenKeys] = useState(['sub2', 'sub3']);
 
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
@@ -25,7 +25,12 @@ export default function HeaderMenu({ list }) {
   };
 
   return (
-    <Menu mode="inline" openKeys={openKeys} onOpenChange={onOpenChange}>
+    <Menu
+      mode="inline"
+      openKeys={openKeys}
+      onOpenChange={onOpenChange}
+      defaultSelectedKeys={[selectedKey]}
+    >
       <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
         <Menu.Item key="1">Option 1</Menu.Item>
         <Menu.Item key="2">Option 2</Menu.Item>

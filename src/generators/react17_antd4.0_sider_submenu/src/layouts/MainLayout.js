@@ -70,7 +70,7 @@ export default function MainLayout({ children }) {
           {/* <img src='' alt="logo" /> */}
         </div>
         {key && menus && menus.length > 0 && (
-          <SiderMenu list={findChildren(menus, key)} />
+          <SiderMenu list={findChildren(menus, key)} selectedKey="7" />
         )}
       </div>
       <div className="main-layout-main">
