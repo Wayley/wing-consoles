@@ -5,6 +5,7 @@ import { Button } from 'antd';
 import useAuth from 'wing-use-auth';
 
 import HeaderMenu from './components/HeaderMenu';
+import SiderMenu from './components/SiderMenu';
 import LocaleSelector from './components/LocaleSelector';
 
 import Avatar from '../assets/avatar_default.jpg';
@@ -46,17 +47,19 @@ export default function MainLayout({ children }) {
   }, []);
   return (
     <div className="main-layout">
-      {/* <div className="main-layout-sider">sider</div> */}
+      <div className="main-layout-sider">
+        <div className="main-layout-logo" onClick={() => history.push('/')}>
+          <div
+            style={{ fontSize: 24, fontWeight: 'bold', fontStyle: 'italic' }}
+          >
+            BIG LOGO
+          </div>
+          {/* <img src='' alt="logo" /> */}
+        </div>
+        <SiderMenu />
+      </div>
       <div className="main-layout-main">
         <div className="main-layout-header">
-          <div className="main-layout-logo" onClick={() => history.push('/')}>
-            <div
-              style={{ fontSize: 24, fontWeight: 'bold', fontStyle: 'italic' }}
-            >
-              BIG LOGO
-            </div>
-            {/* <img src='' alt="logo" /> */}
-          </div>
           <div style={{ flex: 1, marginLeft: 40 }}>
             <HeaderMenu />
           </div>

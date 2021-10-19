@@ -17,6 +17,10 @@ body {
     background: @main-layout-sider-background;
     background-color: @main-layout-sider-background;
   }
+  .main-layout-logo {
+    cursor: pointer;
+    height: @header-height;
+  }
   .main-layout-main {
     display: flex;
     flex: 1;
@@ -29,9 +33,7 @@ body {
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
-    .main-layout-logo {
-      cursor: pointer;
-    }
+
     /* *********************** COVER ANTD *********************** */
     .ant-menu {
       border-bottom: none;
