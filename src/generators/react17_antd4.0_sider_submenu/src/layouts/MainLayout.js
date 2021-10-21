@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useRouteMatch, useLocation } from 'react-router-dom';
 import intl from 'react-intl-universal';
 
 import { Button } from 'antd';
@@ -22,7 +22,6 @@ const { SUPPORTED_LOCALES } = localeConfig;
 
 function findChildren(list, activeKey) {
   let active = list.find((o) => o.path === activeKey);
-
   return active && active.children ? active.children : [];
 }
 
@@ -31,11 +30,10 @@ export default function MainLayout({ children }) {
   const { lang, updateLang } = useLocale();
   const auth = useAuth();
   const [menus, setMenus] = useState([]);
-  const [key, setKey] = useState(''); // Header Menu Selected Key
-  const headerMenuClick = (key) => {
-    history.push(key);
-    setKey(key);
-  };
+  const key1 = '/dashboard';
+  const key2 = '/dashboard/active-user-data';
+
+  const [key, setKey] = useState(key1); // Header Menu Selected Key
 
   // LOG OUT
   async function fetchLogout() {
@@ -57,8 +55,8 @@ export default function MainLayout({ children }) {
     setMenus(menus || []);
   }
   useEffect(() => {
-    getMenus();
-  }, []);
+    getMenus(lang);
+  }, [lang]);
   return (
     <div className="main-layout">
       <div className="main-layout-sider">
@@ -71,13 +69,24 @@ export default function MainLayout({ children }) {
           {/* <img src='' alt="logo" /> */}
         </div>
         {key && menus && menus.length > 0 && (
-          <SiderMenu list={findChildren(menus, key)} selectedKey="7" />
+          <SiderMenu
+            list={findChildren(menus, key)}
+            onClick={(key) => history.push(key)}
+            selectedKey={key2}
+          />
         )}
       </div>
       <div className="main-layout-main">
         <div className="main-layout-header">
           <div style={{ flex: 1, marginLeft: 40 }}>
-            <HeaderMenu list={menus} onClick={headerMenuClick} selectedKey="" />
+            <HeaderMenu
+              list={menus}
+              onClick={(key) => {
+                history.push(key);
+                setKey(key);
+              }}
+              selectedKey={key1}
+            />
           </div>
           <div className="main-layout-operation">
             <LocaleSelector
