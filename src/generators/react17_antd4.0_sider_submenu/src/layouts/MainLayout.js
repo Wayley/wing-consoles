@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import intl from 'react-intl-universal';
 
 import { Button } from 'antd';
 import useAuth from 'wing-use-auth';
@@ -99,7 +100,7 @@ export default function MainLayout({ children }) {
               onClick={fetchLogout}
               className="main-layout-operation-logout"
             >
-              Logout
+              {intl.get('logout')}
             </Button>
           </div>
         </div>
