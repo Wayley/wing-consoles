@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useHistory, useRouteMatch, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import intl from 'react-intl-universal';
 
 import { Button } from 'antd';
@@ -37,7 +37,6 @@ export default function MainLayout({ children }) {
   const history = useHistory();
   const { pathname } = useLocation();
   const keys = findActiveKeys(pathname);
-  console.log(keys);
   const { lang, updateLang } = useLocale();
   const auth = useAuth();
   const [menus, setMenus] = useState([]);
@@ -71,8 +70,7 @@ export default function MainLayout({ children }) {
     // 不然设置为路由匹配的
     else {
       setHeaderKey(keys[0]);
-      // FIXME:
-      keys[1] && setSiderKey(keys[1]);
+      setSiderKey(keys[keys.length - 1]);
     }
   }, [menus, keys]);
   useEffect(() => {
