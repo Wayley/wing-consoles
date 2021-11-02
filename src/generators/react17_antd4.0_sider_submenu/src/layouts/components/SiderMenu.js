@@ -4,7 +4,7 @@ export default function HeaderMenu({ onClick, selectedKey, list }) {
   return (
     <Menu
       mode="inline"
-      defaultSelectedKeys={[selectedKey]}
+      selectedKeys={[selectedKey]}
       onClick={(e) => {
         onClick && onClick(e.key);
       }}

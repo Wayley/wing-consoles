@@ -24,17 +24,26 @@ function findChildren(list, activeKey) {
   let active = list.find((o) => o.path === activeKey);
   return active && active.children ? active.children : [];
 }
-
+function findActiveKeys(pathname) {
+  const pathSnippets = pathname.split('/').filter((i) => i);
+  let keys = [];
+  pathSnippets.forEach((path, i) => {
+    const url = `/${pathSnippets.slice(0, i + 1).join('/')}`;
+    keys.push(url);
+  });
+  return keys;
+}
 export default function MainLayout({ children }) {
   const history = useHistory();
+  const { pathname } = useLocation();
+  const keys = findActiveKeys(pathname);
+  console.log(keys);
   const { lang, updateLang } = useLocale();
   const auth = useAuth();
   const [menus, setMenus] = useState([]);
-  const key1 = '/dashboard';
-  const key2 = '/dashboard/active-user-data';
 
-  const [key, setKey] = useState(key1); // Header Menu Selected Key
-
+  const [headerKey, setHeaderKey] = useState(null); // Header Menu Selected Key
+  const [siderKey, setSiderKey] = useState(null); // Sider Menu Selected Key
   // LOG OUT
   async function fetchLogout() {
     try {
@@ -55,6 +64,18 @@ export default function MainLayout({ children }) {
     setMenus(menus || []);
   }
   useEffect(() => {
+    // 如果是Home(`/`)页面, 那么手动跳转到menu第一项
+    if (keys.length === 0) {
+      menus && menus.length > 0 && setHeaderKey(menus[0].path);
+    }
+    // 不然设置为路由匹配的
+    else {
+      setHeaderKey(keys[0]);
+      // FIXME:
+      keys[1] && setSiderKey(keys[1]);
+    }
+  }, [menus, keys]);
+  useEffect(() => {
     getMenus(lang);
   }, [lang]);
   return (
@@ -68,11 +89,11 @@ export default function MainLayout({ children }) {
           </div>
           {/* <img src='' alt="logo" /> */}
         </div>
-        {key && menus && menus.length > 0 && (
+        {headerKey && menus && menus.length > 0 && (
           <SiderMenu
-            list={findChildren(menus, key)}
+            list={findChildren(menus, headerKey)}
             onClick={(key) => history.push(key)}
-            selectedKey={key2}
+            selectedKey={siderKey}
           />
         )}
       </div>
@@ -83,9 +104,9 @@ export default function MainLayout({ children }) {
               list={menus}
               onClick={(key) => {
                 history.push(key);
-                setKey(key);
+                setHeaderKey(key);
               }}
-              selectedKey={key1}
+              selectedKey={headerKey}
             />
           </div>
           <div className="main-layout-operation">

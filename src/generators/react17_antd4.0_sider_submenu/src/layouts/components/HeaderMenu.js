@@ -6,7 +6,7 @@ export default function HeaderMenu({ onClick, selectedKey, list }) {
       onClick={(e) => {
         onClick && onClick(e.key);
       }}
-      defaultSelectedKeys={[selectedKey]}
+      selectedKeys={[selectedKey]}
       mode="horizontal"
     >
       {list &&
