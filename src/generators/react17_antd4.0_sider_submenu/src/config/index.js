@@ -44,6 +44,12 @@ export const SUPPORTED_DASHBOARD_CARS = [
     value: 'car3',
   },
 ];
+/* *************************** MENU COMPONENT RENDER CONFIG *************************** */
+export const MENU_COMPONENT_CONFIG = {
+  menuKeyName: 'path',
+  menuTitleName: 'title',
+  menuChildrenName: 'children',
+};
 
 export const configs = { cookieConfig };
 

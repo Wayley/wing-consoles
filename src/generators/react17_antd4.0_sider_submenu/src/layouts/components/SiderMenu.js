@@ -1,9 +1,14 @@
 import { useState, useEffect } from 'react';
-
 import { Menu } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
+import { MENU_COMPONENT_CONFIG } from '../../config';
+const { menuKeyName, menuTitleName, menuChildrenName } = MENU_COMPONENT_CONFIG;
 const { SubMenu } = Menu;
-function renderMenu({ title, path, children }) {
+function renderMenu(menu) {
+  let children = menu[menuChildrenName];
+  let path = menu[menuKeyName];
+  let title = menu[menuTitleName];
+
   return children && children.length > 0 ? (
     <SubMenu key={path} icon={<SettingOutlined />} title={title}>
       {children.map((child) => renderMenu(child))}
@@ -13,7 +18,7 @@ function renderMenu({ title, path, children }) {
   );
 }
 export default function HeaderMenu({ onClick, selectedKey, list, keys }) {
-  const rootSubmenuKeys = list.map((o) => o.path);
+  const rootSubmenuKeys = list.map((o) => o[menuKeyName]);
 
   const [openKeys, setOpenKeys] = useState([]);
   useEffect(() => {

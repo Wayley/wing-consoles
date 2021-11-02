@@ -14,20 +14,21 @@ import localeConfig from '../locales';
 import { useLocale } from '../hooks/useLocale';
 import { cookie } from '../utils/cookie';
 import { $Message } from '../utils/method';
-
-import { cookieConfig, CodeType } from '../config';
+import { cookieConfig, CodeType, MENU_COMPONENT_CONFIG } from '../config';
 import { logout, getUserMenus } from '../service';
+
 const { accountKeyName } = cookieConfig;
 const { SUPPORTED_LOCALES } = localeConfig;
+const { menuKeyName, menuChildrenName } = MENU_COMPONENT_CONFIG;
 
 function findChildren(list, activeKey) {
-  let active = list.find((o) => o.path === activeKey);
-  return active && active.children ? active.children : [];
+  let active = list.find((o) => o[menuKeyName] === activeKey);
+  return active && active[menuChildrenName] ? active[menuChildrenName] : [];
 }
 function findActiveKeys(pathname) {
   const pathSnippets = pathname.split('/').filter((i) => i);
   let keys = [];
-  pathSnippets.forEach((path, i) => {
+  pathSnippets.forEach((o, i) => {
     const url = `/${pathSnippets.slice(0, i + 1).join('/')}`;
     keys.push(url);
   });
@@ -65,7 +66,7 @@ export default function MainLayout({ children }) {
   useEffect(() => {
     // 如果是Home(`/`)页面, 那么手动跳转到menu第一项
     if (keys.length === 0) {
-      menus && menus.length > 0 && setHeaderKey(menus[0].path);
+      menus && menus.length > 0 && setHeaderKey(menus[0][menuKeyName]);
     }
     // 不然设置为路由匹配的
     else {
