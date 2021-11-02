@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Menu } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
@@ -12,9 +12,15 @@ function renderMenu({ title, path, children }) {
     <Menu.Item key={path}>{title}</Menu.Item>
   );
 }
-export default function HeaderMenu({ onClick, selectedKey, list }) {
+export default function HeaderMenu({ onClick, selectedKey, list, keys }) {
   const rootSubmenuKeys = list.map((o) => o.path);
+
   const [openKeys, setOpenKeys] = useState([]);
+  useEffect(() => {
+    let defaultOpendedKeys =
+      keys && keys.length >= 3 ? keys.slice(1, keys.length - 1) : [];
+    setOpenKeys(defaultOpendedKeys);
+  }, [keys]);
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {

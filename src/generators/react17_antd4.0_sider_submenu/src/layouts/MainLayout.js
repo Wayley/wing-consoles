@@ -92,6 +92,7 @@ export default function MainLayout({ children }) {
             list={findChildren(menus, headerKey)}
             onClick={(key) => history.push(key)}
             selectedKey={siderKey}
+            keys={keys}
           />
         )}
       </div>
