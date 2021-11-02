@@ -74,6 +74,9 @@ export default function AuthenticRouter() {
             <Switch>
               <Route path="/dashboard">
                 <Switch>
+                  <Route path="/dashboard" exact>
+                    <Welcome />
+                  </Route>
                   <Route path="/dashboard/overview">
                     <Dashboard />
                   </Route>
@@ -87,6 +90,9 @@ export default function AuthenticRouter() {
               </Route>
               <Route path="/system">
                 <Switch>
+                  <Route path="/system" exact>
+                    <Welcome />
+                  </Route>
                   <Route path="/system/account">
                     <Switch>
                       <Route path="/system/account/list">
