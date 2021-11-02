@@ -97,6 +97,10 @@ export default function AuthenticRouter() {
                     <Switch>
                       <Route path="/system/account/list">
                         <AcountList />
+                        <Switch>
+                          <Route path="/system/account/list/a">A</Route>
+                          <Route path="/system/account/list/b">B</Route>
+                        </Switch>
                       </Route>
                       <Route exact path="/system/account/add">
                         <AccountAdd />

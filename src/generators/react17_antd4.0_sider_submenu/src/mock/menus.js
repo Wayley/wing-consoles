@@ -36,6 +36,18 @@ export const menus = [
             id: 212,
             path: '/system/account/list',
             title: 'Acount List',
+            children: [
+              {
+                id: 2121,
+                path: '/system/account/list/a',
+                title: 'List A',
+              },
+              {
+                id: 2122,
+                path: '/system/account/list/b',
+                title: 'List B',
+              },
+            ],
           },
         ],
       },
