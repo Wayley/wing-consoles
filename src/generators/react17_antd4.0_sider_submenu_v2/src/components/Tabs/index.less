@@ -1,0 +1,25 @@
+.global-component-tabs {
+  .ant-tabs-nav {
+    background-color: rgba(40, 112, 197, 0.15);
+  }
+  .ant-tabs-tab {
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+    font-size: 16px;
+    background: none !important;
+    border: none !important;
+  }
+  .ant-tabs-tab-active {
+    background: #fff !important;
+    position: relative;
+    &:before {
+      content: ' ';
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      left: 0;
+      top: 0;
+      background-color: #2770c5;
+    }
+  }
+}

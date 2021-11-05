@@ -1,0 +1,54 @@
+{
+  "name": "react17_antd4.0",
+  "displayName": "Wing Console App(react17_antd4.0)",
+  "version": "0.0.2",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "antd": "^4.16.13",
+    "js-cookie": "^3.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-intl-universal": "^2.4.8",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1",
+    "wing-axios": "^0.0.3",
+    "wing-use-auth": "^0.0.4",
+    "wing-use-fetch": "^0.0.2"
+  },
+  "devDependencies": {
+    "@craco/craco": "^6.3.0",
+    "compression-webpack-plugin": "^9.0.0",
+    "craco-less": "^1.20.0",
+    "http-proxy-middleware": "^2.0.1",
+    "wing-dotenv": "^0.0.5"
+  },
+  "scripts": {
+    "start": "wing-dotenv -e .env.development craco start",
+    "build": "wing-dotenv -e .env.production craco build",
+    "build:test": "wing-dotenv -e .env.production.test craco build",
+    "build:pre": "wing-dotenv -e .env.production.pre craco build",
+    "test": "craco test"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

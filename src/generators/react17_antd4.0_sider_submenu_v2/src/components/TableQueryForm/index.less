@@ -1,0 +1,22 @@
+.global-component-table-query-form {
+  .ant-form-item {
+    margin-bottom: 10px;
+    .ant-form-item-label {
+      & > label {
+        word-break: break-all;
+        white-space: break-spaces;
+        text-align: left;
+        line-height: 1.2;
+      }
+    }
+  }
+  @query-col-width: 300px;
+  .global-component-table-query-col {
+    max-width: @query-col-width;
+    min-width: @query-col-width;
+  }
+  .global-component-table-query-col-submit {
+    width: 200px;
+    text-align: right;
+  }
+}

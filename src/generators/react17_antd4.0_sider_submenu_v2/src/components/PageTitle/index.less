@@ -1,0 +1,29 @@
+/* ************************ page-title ************************ */
+.global-component-page-title-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.global-component-page-title {
+  height: 22px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  color: #545454;
+
+  padding-left: 12px;
+  background: #fff;
+  position: relative;
+  display: flex;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 14px;
+    margin-top: -7px;
+    width: 2px;
+    background-color: @theme-color;
+  }
+}
