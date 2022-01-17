@@ -2,10 +2,18 @@
   "name": "vue2_view-design4.0",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Robben Wadlay",
+    "email": "zheng.Wang@mobiledrivetech.com"
+  },
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --open",
+    "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "vue-cli-service test:e2e",
+    "lint": "vue-cli-service lint",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build:pre": "vue-cli-service build --mode pre",
+    "build:test": "vue-cli-service build --mode test"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -18,12 +26,12 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
     "lint-staged": "^12.1.7",
+    "style-resources-loader": "^1.4.1",
+    "vue-cli-plugin-style-resources-loader": "~0.1.5",
     "vue-template-compiler": "^2.6.11"
-  },
-  "author": {
-    "name": "Robben Wadlay",
-    "email": "hb_wangzheng@163.com"
   },
   "browserslist": [
     "> 1%",
