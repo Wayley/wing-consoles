@@ -1,6 +1,7 @@
 const { resolve } = require('path');
-
+const proxy = require('./setupProxy');
 const { VUE_APP_PUBLIC_PATH } = process.env.VUE_APP_PUBLIC_PATH;
+
 module.exports = {
   publicPath: VUE_APP_PUBLIC_PATH,
   outputDir: 'dist',
@@ -15,7 +16,7 @@ module.exports = {
   lintOnSave: process.env.NODE_ENV === 'development',
   devServer: {
     port: 8080,
-    // proxy: {},
+    proxy,
     overlay: { warnings: false, errors: true },
   },
   chainWebpack: (config) => {
