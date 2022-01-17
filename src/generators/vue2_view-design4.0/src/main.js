@@ -1,9 +1,9 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
 import App from '@/App.vue';
 import router from '@/router';
-Vue.use(VueRouter);
-
+import ViewUI from 'view-design';
+import 'view-design/dist/styles/iview.css';
+Vue.use(ViewUI);
 Vue.config.productionTip = false;
 
 new Vue({
