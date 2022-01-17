@@ -1,22 +1,19 @@
 import { _cookie } from '@/util/cookie';
-import { TOKEN_KEY, LOCALE_KEY } from '@/config';
+import { TOKEN_KEY, LOCALE_KEY, USER_ID_KEY, USER_NAME_KEY } from '@/config';
 import SUPPORTED_LOCALES from '../locale/SUPPORTED_LOCALES';
+
 export const setToken = (token) => {
   _cookie.set(TOKEN_KEY, token);
 };
 export const getToken = () => {
-  const token = _cookie.get(TOKEN_KEY);
-  if (token) return token;
-  else return false;
+  return _cookie.get(TOKEN_KEY) || '';
 };
 
 export const setLocale = (locale) => {
   _cookie.set(LOCALE_KEY, locale);
 };
 export const getLocale = () => {
-  const locale = _cookie.get(LOCALE_KEY);
-  if (locale) return locale;
-  else return false;
+  return _cookie.get(LOCALE_KEY) || '';
 };
 
 export const getDefaultLocale = () => {
@@ -28,4 +25,18 @@ export const getDefaultLocale = () => {
     if (_NAV_LANG) return _NAV_LANG.value;
   }
   return 'zh_CN';
+};
+
+export const setUserId = (userId) => {
+  _cookie.set(USER_ID_KEY, userId);
+};
+export const getUserId = () => {
+  return _cookie.get(USER_ID_KEY) || '';
+};
+
+export const setUserName = (userName) => {
+  _cookie.set(USER_NAME_KEY, userName);
+};
+export const getUserName = () => {
+  return _cookie.get(USER_NAME_KEY) || '';
 };
