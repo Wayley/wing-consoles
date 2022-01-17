@@ -1,6 +1,9 @@
+import { getToken, getDefaultLocale } from '@/util';
+
 // initial state
 const state = () => ({
-  locale: 'zh_CN',
+  locale: getDefaultLocale(),
+  token: getToken(),
 });
 
 // getters
