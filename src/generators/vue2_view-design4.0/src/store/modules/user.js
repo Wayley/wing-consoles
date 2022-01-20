@@ -11,18 +11,15 @@ import {
 } from '@/util';
 
 // initial state
-const locale = getLocale() || getDefaultLocale();
 const state = () => ({
-  locale,
+  local: getLocale() || getDefaultLocale(),
   token: getToken(),
   userName: getUserName(),
   userId: getUserId(),
 });
 
 // getters
-const getters = {
-  locale: (state) => state.locale,
-};
+const getters = {};
 
 // actions
 const actions = {
