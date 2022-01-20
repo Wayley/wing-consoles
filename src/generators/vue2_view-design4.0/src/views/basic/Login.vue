@@ -80,6 +80,7 @@ export default {
               this.$router.push({ name: 'home' });
             } else {
               this.$Message.error(message);
+              this.updateVerifyCode();
             }
           }
           this.loading = false;

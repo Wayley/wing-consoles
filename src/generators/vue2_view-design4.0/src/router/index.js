@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import routes from './routes';
 import ViewUI from 'view-design';
+import { getToken } from '@/util';
 
 Vue.use(VueRouter);
 export const router = new VueRouter({
@@ -9,7 +10,14 @@ export const router = new VueRouter({
 });
 router.beforeEach((to, from, next) => {
   ViewUI.LoadingBar.start();
-  next();
+
+  const isAuthenticated = getToken();
+  const { publicPage } = to.meta;
+  if (!publicPage && !isAuthenticated) {
+    next({ name: 'login' });
+  } else {
+    next();
+  }
 });
 router.afterEach(() => {
   ViewUI.LoadingBar.finish();
